@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace CarLotSimulator
 {
@@ -13,6 +14,37 @@ namespace CarLotSimulator
             //Car shall have the following methods: MakeEngineNoise(), MakeHonkNoise()
             //The methods should take one string parameter: the respective noise property
 
+            Car car1 = new Car();
+
+            car1.Year = 2005;
+            car1.Make = "Toyota";
+            car1.Model = "Supra";
+            car1.EngineNoise = "Vroompaaa";
+            car1.HonkNoise = "Supra";
+            car1.IsDriveable = true;
+
+            Car car2 = new Car()
+            {
+                Year = 2004,
+                Make = "Subaru",
+                Model = "V8",
+                EngineNoise = "Sroom",
+                HonkNoise = "Subaru",
+                IsDriveable = true
+            };
+
+            Car car3 = new Car(2024, "Honda", "Civic", "Hroom", "Honda", true);
+
+            car1.MakeEngineNoise();
+            car2.MakeEngineNoise();
+            car3.MakeEngineNoise();
+
+            List<Car> list = new List<Car>() { car1, car2, car3 };
+
+            foreach (var car in list)
+            {
+                Console.WriteLine($"{car.Year}, {car.Make}, {car.Model}");
+            }
 
             //Now that the Car class is created we can instanciate 3 new cars
             //Set the properties for each of the cars
