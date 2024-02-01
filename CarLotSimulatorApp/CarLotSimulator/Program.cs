@@ -14,6 +14,8 @@ namespace CarLotSimulator
             //Car shall have the following methods: MakeEngineNoise(), MakeHonkNoise()
             //The methods should take one string parameter: the respective noise property
 
+            CarLot intance = new CarLot();
+
             Car car1 = new Car();
 
             car1.Year = 2005;
@@ -22,6 +24,8 @@ namespace CarLotSimulator
             car1.EngineNoise = "Vroompaaa";
             car1.HonkNoise = "Supra";
             car1.IsDriveable = true;
+
+            Console.WriteLine($"{CarLot.numbersOfCars}");
 
             Car car2 = new Car()
             {
@@ -33,18 +37,24 @@ namespace CarLotSimulator
                 IsDriveable = true
             };
 
+            Console.WriteLine($"{CarLot.numbersOfCars}");
+
             Car car3 = new Car(2024, "Honda", "Civic", "Hroom", "Honda", true);
 
-            car1.MakeEngineNoise();
-            car2.MakeEngineNoise();
-            car3.MakeEngineNoise();
+            Console.WriteLine($"{CarLot.numbersOfCars}");
 
-            List<Car> list = new List<Car>() { car1, car2, car3 };
+            intance.ListOfCars.Add(car1);
+            intance.ListOfCars.Add(car2);
+            intance.ListOfCars.Add(car3);
 
-            foreach (var car in list)
+            foreach (Car item in intance.ListOfCars)
             {
-                Console.WriteLine($"{car.Year}, {car.Make}, {car.Model}");
+                Console.WriteLine($"{item.Year}");
+                Console.WriteLine($"{item.Make}");
+                Console.WriteLine($"{item.Model}");
+                Console.WriteLine($"{item.IsDriveable}");
             }
+            
 
             //Now that the Car class is created we can instanciate 3 new cars
             //Set the properties for each of the cars
